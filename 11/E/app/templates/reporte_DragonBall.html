@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block content %}
+	<table class="bordered centered striped">
+		<thead>
+		  <tr>
+		      <th>Nombres</th>
+		      
+		      <th>Ataque especial</th>
+		  </tr>
+		</thead>
+	    <tbody>
+
+		{% for dragonballs in dragonball %}
+			<tr>
+			<td>{{ dragonballs.nombre }}</td>
+		        <td>{{ dragonballs.AtaqueEspecial }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+{% endblock %}

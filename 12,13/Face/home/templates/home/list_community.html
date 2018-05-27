@@ -1,0 +1,23 @@
+{% extends 'home/base.html'%}
+{% block content %}
+<h2>Usuarios</h2>
+<table id="TableForm" class="TableForm pure-form pure-form-aligned">
+{% for item in object_list %}
+	{% if item.user_perfil in nofriends %}
+	<tr>
+		<td><img src="http://127.0.0.1:8000/media/{{item.image}}" width="100px" height="100px" class="img-rounded"></td>
+		<th>{{ item.user_perfil }}</th>
+		<th><a  href="/add_friend/{{user_id.pk}}/{{item.pk}}/" role="button" class="btn btn-default">
+		<span class=""></span> Agregar</a></th>
+	</tr>
+	{% else %}
+		<tr>
+		<td><img src="http://127.0.0.1:8000/media/{{item.image}}" width="100px" height="100px" class="img-rounded"></td>
+		<th>{{ item.user_perfil }}</th>
+		<th><a  href="/delete_friend/{{user_id.pk}}/{{item.pk}}/" role="button" class="btn btn-default">
+		<span class=""></span>  amigos</a></th>
+	</tr>
+	{% endif %}
+{% endfor %}
+</table>
+{% endblock content%}

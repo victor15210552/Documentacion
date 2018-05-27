@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<h1 >Perfil</h1>
+<table id="TableForm" class="TableForm pure-form pure-form-aligned">
+{% for item in object_list%}
+<tr>
+	<td><img src="http://127.0.0.1:8000/media/{{item.image}}" width="100px" class="img-circle"></td>
+</tr>
+<tr>
+	<th>Usuario: </th>
+	<td>{{ item.user_perfil }}</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<th>Email: </th>
+	<td>{{item.email}}</td>
+</tr>
+<tr>
+	<th>Password: </th>
+	<td>******</td>
+	</td>
+</tr>
+{% endfor %}
+{% endblock %}

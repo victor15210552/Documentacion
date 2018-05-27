@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %} 
+
+{% block title %}Consumindo Json Extensiòn usuarios{%endblock%}
+
+{% block contenedor %}
+<div id="contenedor" class="container"></div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			contentType: "json",
+			dateType: "json",
+			url:"/json_modelo_extendido/",
+			success:function(response){
+				for (var i = 0; i < response.length ; i++) {
+					console.log(response[i])
+					$('#contenedor').append("<table class='bordered centered striped'><thead><tr><th>Usuario</th><th>Apodo</th><th>Facebook</th><th>Youtube</th><th>Equipo Favorito</th></tr></thead><tbody><tr><td>"+response[i].fields.user+"</td><td>"+response[i].fields.apodo+"</td><td>"+response[i].fields.facebook+"</td><td>"+response[i].fields.youtube+"</td><td>"+response[i].fields.equipo_favorito+"</td>");
+				}
+			}
+		});
+	});
+</script>
+{%endblock%}

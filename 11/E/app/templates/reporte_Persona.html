@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+	<table class="bordered centered striped">
+		<thead>
+		  <tr>
+		      <th>Nombres</th>
+		      
+		      <th>sex</th>
+		  </tr>
+		</thead>
+	    <tbody>
+
+		{% for persona in persona %}
+			<tr>
+			<td>{{ persona.first_name }} 
+		       {{ persona.last_name }}</td>
+		        <td>{{ persona.sex }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+{% endblock %}

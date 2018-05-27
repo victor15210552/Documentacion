@@ -1,0 +1,28 @@
+
+{% extends 'home/base.html'%}
+{% block content %}
+<div class="contenido">
+	<h2>{{ object.title }}</h2>
+	<h4>{{ object.body}}</h4>
+	<h5>Publicado: {{ object.user }}</h5>
+	<h5> {{object.score}} likes</h5>
+	<a  href="/score_publication/{{object.pk}}/" role="button" class="btn btn-default">
+		<span class=""></span> Like</a>
+	<br></br>
+	<h4> Commentarios</h4>
+
+	{% for comment in comment_list%}
+	<h5>{{comment.user}}: {{comment.comment}} <a href="/score_comment/{{object.pk}}/{{comment.pk}}/" role="button" class="btn btn-default">likes: {{comment.score}} <span class=""></span></a></h5>
+	{% endfor %}
+
+	<form method ='POST' class="pure-form pure-form-aligned">
+		{% csrf_token %}
+		<p><textarea cols="40" id="id_comment" name="comment" rows="2">
+		</textarea></p>
+		<input id="id_user" maxlength="50" name="user" type="hidden" value="{{ user.username }}" />
+		<input id="id_publication" maxlength="50" name="publication" type="hidden" value="{{object.id}}"/>
+
+  		<button type="submit" class="pure-button pure-button-active" >publicar <span class="" aria-hidden="true"></span></button>
+  </form>
+</div>
+{% endblock content%}

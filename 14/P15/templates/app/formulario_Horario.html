@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %} 
+
+<!--Sobreescribiendo el bloque-->
+{% block title %} Horario {% endblock %}
+
+<!--Sobreescribiendo el bloque-->
+{% block contenedor %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Guardar</button>
+</form>
+{% endblock %}

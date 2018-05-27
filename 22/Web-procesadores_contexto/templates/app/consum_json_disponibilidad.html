@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %} 
+
+{% block title %}Consumindo Json Disponibilidad del libro{%endblock%}
+
+{% block contenedor %}
+<div id="contenedor" class="container"></div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			contentType: "json",
+			dateType: "json",
+			url:"/json_disponibilidad_libro/",
+			success:function(response){
+				for (var i = 0; i < response.length ; i++) {
+					//console.log(response[i])
+					$('#contenedor').append("<table class='bordered centered striped'><thead><tr><th>Tienda</th><th>ISBN</th><th>Cantidad</th><th>Slug</th></tr></thead><tbody><tr><td>"+response[i].fields.tienda+"</td><td>"+response[i].fields.nombre+"</td><td>"+response[i].fields.cantidad+"</td><td>"+response[i].fields.slug+"</td>");
+				}
+			}
+		});
+	});
+</script>
+{%endblock%}

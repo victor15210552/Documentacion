@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %} 
+
+{% block title %}Consumindo Json Detalle Libro{%endblock%}
+
+{% block contenedor %}
+<div id="contenedor" class="container"></div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			contentType: "json",
+			dateType: "json",
+			url:"/json_detalle_libro/",
+			success:function(response){
+				for (var i = 0; i < response.length ; i++) {
+					//console.log(response[i])
+					$('#contenedor').append("<table class='bordered centered striped'><thead><tr><th>Libro</th><th>Ediciòn</th><th>Nùmero de pàginas</th><th>Editorial</th><th>Autor</th></tr></thead><tbody><tr><td>"+response[i].fields.libro+"</td><td>"+response[i].fields.edicion+"</td><td>"+response[i].fields.num_paginas+"</td><td>"+response[i].fields.editorial+"</td><td>"+response[i].fields.autor+"</td>");
+				}
+			}
+		});
+	});
+</script>
+{%endblock%}

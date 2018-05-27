@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} MI ARCHIVO BASE {% endblock %}</title>
+
+	{% block estilos %} 
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    {% endblock %}    
+</head>
+<body>
+	{% block contenido_base %}
+	{% endblock %}	
+	
+	{% block contenedor %}
+	{% endblock %}	
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html> 

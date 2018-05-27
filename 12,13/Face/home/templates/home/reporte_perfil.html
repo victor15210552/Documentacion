@@ -1,0 +1,26 @@
+{% extends 'home/base.html'%}
+{% block title %}Criticas{% endblock%}
+{% block content %}
+ <div class="div-content">
+<div class="panel panel-default">
+  <div class="panel-heading">Usuarios</div>
+  <div class="panel-body">
+
+<table class="table">
+<tr>
+	<th>Nombre</th>
+	<th>Foto</th>
+	<th>Correo Electronico</th>
+</tr>
+{% for item in object_list%}
+<tr>
+		<td>{{ item.user_perfil }}</td>
+		<td><img src="http://127.0.0.1:8000/media/{{item.image}}" width="45px"></td>
+		<td>{{item.correo_electronico}}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+</div>
+{% endblock content%}

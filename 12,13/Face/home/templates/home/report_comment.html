@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+{% block title %}Extra{% endblock %}
+{% block content %}
+{% for item in object_list%}
+<ul>
+<div class="contenido" >
+	<a  href="/register_comment/{{item.pk}}/">
+	<h2>{{ item.title }}</h2></a>
+	<h4>{{ item.body}}</h4>
+	<h5>Usuario: {{ item.user }}</h5>
+	<h5> {{item.score}} people love this and {{item.unscored}} people don't like this</h5>
+	<a  href="/score_publication/{{item.pk}}/" role="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-heart"></span> Love this</a>
+	<a  href="/unscored_publication/{{item.pk}}/" role="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-thumbs-down"></span> Don't Like</a>
+</div>
+</ul>
+{% endfor %}
+{% endblock %}

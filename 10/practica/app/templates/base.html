@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} archivo base {% endblock %}</title>
+
+	{% block links %} 
+	<link rel="stylesheet" type="text/css" href="{% static 'app/fontawesome/css/fontawesome-all.css' %}" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'app/materialize/css/materialize.min.css' %}" />
+	<script src="{% static 'app/jquery-3.2.1.min.js' %}"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	{% endblock %}    
+</head>
+<body>
+	{% block cabecera %}
+	<nav class="light-blue darken-4">
+		<div class="nav-wrapper">
+			<a href="" class="brand-logo"></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+<!--				<li><a href="../formAutor">Autor</a></li>-->
+			</ul>
+		</div>
+	</nav>
+	{% endblock %}
+	<br>
+
+	<div class="grid-example col s12 m6" style="position: absolute; width: 50%; left: 25%;top: 12%; border-radius: 5px;">
+		{% block content %}
+		{% endblock %}	
+	</div>
+	<script src="{% static 'app/jquery-3.2.1.min.js' %}"></script>
+  	<script src="{% static 'app/materialize/js/materialize.min.js' %}"></script>
+</body>
+</html> 

@@ -1,0 +1,16 @@
+{% extends 'home/base.html'%}
+{% block content %}
+{% for item in object_list%}
+<h2>Amigos</h2>
+<table id="TableForm" class="TableForm pure-form pure-form-aligned">
+	{% for p in item.friends.all %}
+	<tr>
+		<td><img src="http://127.0.0.1:8000/media/{{p.image}}" width="100px" height="100px" class="img-rounded"></td>
+		<th>{{ p.user_perfil }}</th>
+		<th><a  href="/delete_friend/{{item.pk}}/{{p.pk}}/" role="button" class="btn btn-default">
+		<span class=""></span> Eliminar</a></th>
+	</tr>
+	{% endfor %}
+{% endfor %}
+</table>
+{% endblock content%}

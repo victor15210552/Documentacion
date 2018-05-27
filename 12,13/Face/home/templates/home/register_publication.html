@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+{% block title %}Index{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="div-title">
+  <h1>Publicar</h1>
+ </div>
+<div class="div-align">
+	<form method ='POST' class="pure-form pure-form-aligned">
+		{% csrf_token %}
+		<p><label for="id_title">Titulo:</label> <input id="id_title" maxlength="100" name="title" type="text" /></p>
+		<p><label for="id_body">Descripcion:</label> <textarea cols="40" id="id_body" name="body" rows="10">
+		</textarea></p>
+		<input id="id_user" maxlength="50" name="user" type="hidden" value="{{ user.username }}" /></p>
+
+  		<button type="submit" class="pure-button pure-button-active">Publicar <span class="" aria-hidden="true"></span></button>
+  </form>
+</div>
+{% else %}
+{% endif %}
+{% endblock %}

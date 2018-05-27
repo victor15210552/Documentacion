@@ -1,0 +1,8 @@
+{% extends 'app/base.html' %} 
+{% block title %}Procesador de contexto{%endblock%}
+
+{% block contenedor %}
+	<p>Todos los autores: {{autores}}</p>
+	<footer>Version Django {{django_version}}</footer>
+	<footer>Version Python {{python_version}}</footer>
+{%endblock%}

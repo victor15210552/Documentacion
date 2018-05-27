@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+	<table class="bordered centered striped">
+		<thead>
+		  <tr>
+		      <th>Nombres</th>
+		      
+		      <th>edad</th>
+		  </tr>
+		</thead>
+	    <tbody>
+
+		{% for boxeadors in boxeador %}
+			<tr>
+			<td>{{ boxeadors.nombre }} 
+		       {{ boxeadors.Ganadas }}</td>
+		        <td>{{ boxeadors.edad }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+{% endblock %}

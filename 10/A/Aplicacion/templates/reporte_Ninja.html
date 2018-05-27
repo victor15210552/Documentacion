@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+	<table class="bordered centered striped">
+		<thead>
+		  <tr>
+		      <th>Nombre</th>
+		      <th>Nivel Chakra</th>
+		      <th>Lugar de origen</th>
+		  </tr>
+		</thead>
+	    <tbody>
+
+		{% for ninja in ninjas %}
+			<tr>
+			<td>{{ ninja.nombre }}</td>
+		        <td>{{ ninja.niveldechakra }}</td>
+		        <td>{{ ninja.LugardeOrigen }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+{% endblock %}

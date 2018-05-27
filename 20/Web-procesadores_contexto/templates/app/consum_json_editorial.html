@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %} 
+
+{% block title %}Consumindo Json Editorial{%endblock%}
+
+{% block contenedor %}
+<div id="contenedor" class="container"></div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			contentType: "json",
+			dateType: "json",
+			url:"/json_editorial/",
+			success:function(response){
+				for (var i = 0; i < response.length ; i++) {
+					//console.log(response[i])
+					$('#contenedor').append("<table class='bordered centered striped'><thead><tr><th>Nombre</th><th>Ubicaciòn</th><tr></thead><tbody><tr><td>"+response[i].pk+"</td><td>"+response[i].fields.ubicacion+"</td>");
+				}
+			}
+		});
+	});
+</script>
+{%endblock%}

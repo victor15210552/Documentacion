@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+{% block title %}Extra{% endblock %}
+{% block content %}
+{% for item in object_list%}
+<ul>
+<div class="contenido" >
+	<a  href="/detail_publication/{{item.pk}}/">
+	<h2>{{ item.title }}</h2></a>
+	<h4>{{ item.body}}</h4>
+	<h5>Usuario: {{ item.user }}</h5>
+
+</div>
+</ul>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+	<table class="bordered centered striped">
+		<thead>
+		  <tr>
+		      <th>Nombres</th>
+		      
+		      <th>superpower</th>
+		  </tr>
+		</thead>
+	    <tbody>
+
+		{% for heroes in heroe %}
+			<tr>
+			<td>{{ heroes.nombre }}</td>
+		        <td>{{ heroes.superpower }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'home/base.html'%}
+{% block content %}
+{% if user.is_authenticated %}
+ <div class="div-title">
+  <h1>Welcome {{user.username}}</h1>
+
+ </div>
+
+{% else %}
+<div class="div-title">
+  <h1>Log In</h1>
+ </div>
+ <br></br>
+ <div class="div-align">
+  <form method ='POST' class = "form-horizontal" role = "form">
+    {% csrf_token %}
+      <div class = "form-group">
+          <label for = "fullname"  align="center" class = "col-sm-2 control-label">Username</label>
+          <div class = "col-sm-3">
+            <input type = "text" name="username" class = "form-control" autocomplete="off">
+          </div>
+       </div>
+      <div class = "form-group">
+          <label for ="password" class = "col-sm-2 control-label">Password</label>
+          <div class = "col-sm-3">
+            <input type = "password" name="password" class = "form-control">
+          </div>
+        </div>
+
+
+      <div class = "form-group">
+          <div class = "col-sm-offset-2 col-sm-10">
+            <button type="submit" type="button" class = "btn btn-default">Log In</button>
+            <button type="reset" type="button" class = "btn btn-default">Cancel</button>
+        </div>
+      </div>
+</form>
+</div>
+{% endif %}
+{% endblock %}

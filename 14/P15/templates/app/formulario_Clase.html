@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %} 
+
+<!--Sobreescribiendo el bloque-->
+{% block title %} Clases {% endblock %}
+
+<!--Sobreescribiendo el bloque-->
+{% block contenedor %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <button>Guardar</button>
+</form>
+{% endblock %}
